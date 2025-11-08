@@ -44,16 +44,28 @@ fun DataApp(
                     OnFormulirClick = {
                         navController.navigate(Navigasi.Formulir.name)
                     },
-                    OnBerandaClick = { }
+                    OnBerandaClick = {
+                        cancelAndBackToHome(navController)
+                    }
                 )
             }
 
             composable(route = Navigasi.Formulir.name) {
                 FormInput(
-                    OnBackClick = { },
-                    OnSubmitClick = { }
+                    OnBackClick = {
+                        navController.popBackStack(route = Navigasi.Daftar.name, inclusive = false)
+                    },
+                    OnSubmitClick = {
+                        navController.popBackStack(route = Navigasi.Daftar.name, inclusive = false)
+                    }
                 )
             }
         }
     }
+}
+
+private fun cancelAndBackToHome(
+    navController: NavHostController
+) {
+    navController.popBackStack(route = Navigasi.Home.name, inclusive = false)
 }
