@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -200,9 +201,28 @@ fun ListPeserta(
             }
         }
         Row(
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
             modifier = Modifier.fillMaxWidth()
         ) {
+            Button(
+                onClick = OnBerandaClick,
+                modifier = Modifier.weight(1f)
+            ) {
+                Text(
+                    text = stringResource(id = R.string.beranda),
+                    modifier = Modifier.padding(vertical = 8.dp)
+                )
+            }
 
+            Button(
+                onClick = OnFormulirClick,
+                modifier = Modifier.weight(1f)
+            ) {
+                Text(
+                    text = stringResource(id = R.string.formulir),
+                    modifier = Modifier.padding(vertical = 8.dp)
+                )
+            }
         }
     }
 }
