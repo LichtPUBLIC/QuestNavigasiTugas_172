@@ -124,6 +124,80 @@ fun ListPeserta(
                     }
                 }
             }
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(12.dp),
+                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+            ) {
+                Column(modifier = Modifier.padding(16.dp)) {
+                    Row(
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Column {
+                            Text(
+                                text = stringResource(id = R.string.nama_lengkap),
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 13.sp
+                            )
+
+                            Text(
+                                text = "Sapri Dermen",
+                                fontSize = 14.sp
+                            )
+                        }
+
+                        Column (modifier = Modifier.width(125.dp)) {
+                            Text(
+                                text = stringResource(id = R.string.jenis_kelamin),
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 13.sp
+                            )
+
+                            Text(
+                                text = "Laki-laki",
+                                fontSize = 14.sp
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    Row(
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Column {
+                            Text(
+                                text = stringResource(id = R.string.status_perkawinan),
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 13.sp
+                            )
+
+                            Text(
+                                text = "Lajang",
+                                fontSize = 14.sp
+                            )
+                        }
+
+                        Column (modifier = Modifier.width(125.dp)) {
+                            Text(
+                                text = stringResource(id = R.string.alamat),
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 13.sp
+                            )
+
+                            Text(
+                                text = "Pakualaman",
+                                fontSize = 14.sp
+                            )
+                        }
+                    }
+                }
+            }
         }
         Row(
             modifier = Modifier.fillMaxWidth()
