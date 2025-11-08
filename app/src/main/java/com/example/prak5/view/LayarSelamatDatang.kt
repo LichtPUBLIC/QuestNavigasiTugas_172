@@ -4,9 +4,11 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.background
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -24,6 +26,7 @@ import com.example.prak5.R
 
 @OptIn (ExperimentalMaterial3Api::class)
 @Composable
+
 fun Home (
     OnMasukBtnClick: () -> Unit
 ) {
@@ -66,6 +69,20 @@ fun Home (
                 fontWeight = FontWeight.Medium,
                 fontSize = 18.sp,
                 textAlign = TextAlign.Center
+            )
+        }
+
+        Button(
+            onClick = OnMasukBtnClick,
+            modifier = Modifier
+                .fillMaxWidth(0.8f)
+                .padding(top = 24.dp)
+        ) {
+            Text(
+                text = stringResource(id = R.string.masuk),
+                modifier = Modifier.padding(vertical = 10.dp),
+
+                fontSize = 18.sp
             )
         }
     }
