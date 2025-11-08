@@ -9,6 +9,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.prak5.view.FormInput
 import com.example.prak5.view.Home
 import com.example.prak5.view.ListPeserta
 
@@ -40,8 +41,17 @@ fun DataApp(
 
             composable(route = Navigasi.Daftar.name) {
                 ListPeserta(
-                    OnFormulirClick = { },
+                    OnFormulirClick = {
+                        navController.navigate(Navigasi.Formulir.name)
+                    },
                     OnBerandaClick = { }
+                )
+            }
+
+            composable(route = Navigasi.Formulir.name) {
+                FormInput(
+                    OnBackClick = { },
+                    OnSubmitClick = { }
                 )
             }
         }
