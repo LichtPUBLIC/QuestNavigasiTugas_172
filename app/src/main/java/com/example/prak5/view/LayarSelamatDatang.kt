@@ -2,6 +2,9 @@ package com.example.prak5.view
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.size
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -22,12 +25,14 @@ fun Home (
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = stringResource(id = R.string.judul_welcome),
-            style = MaterialTheme.typography.titleLarge.copy (
-                fontWeight = FontWeight.Bold,
-                fontSize = 35.sp
-            ),
-            textAlign = TextAlign.Center
+        )
+
+        Image(
+            painter = painterResource(id = R.drawable.wibusad),
+            contentDescription = "Logo Aplikasi",
+            modifier = Modifier
+                .size(300.dp)
+                .padding(vertical = 16.dp)
         )
     }
 }
