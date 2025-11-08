@@ -10,6 +10,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.prak5.view.Home
+import com.example.prak5.view.ListPeserta
 
 enum class Navigasi {
     Home,
@@ -31,7 +32,16 @@ fun DataApp(
         ) {
             composable(route = Navigasi.Home.name) {
                 Home(
-                    OnMasukBtnClick = { }
+                    OnMasukBtnClick = {
+                        navController.navigate(Navigasi.Daftar.name)
+                    }
+                )
+            }
+
+            composable(route = Navigasi.Daftar.name) {
+                ListPeserta(
+                    OnFormulirClick = { },
+                    OnBerandaClick = { }
                 )
             }
         }
