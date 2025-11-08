@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -21,6 +22,7 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -35,6 +37,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.prak5.R
 
+
 @OptIn (ExperimentalMaterial3Api::class)
 @Composable
 
@@ -46,6 +49,11 @@ fun FormInput(
     var textJK by remember { mutableStateOf("") }
     var textStatus by remember { mutableStateOf("") }
     var textAlamat by remember { mutableStateOf("") }
+
+    var nama by remember { mutableStateOf("") }
+    var jenis by remember { mutableStateOf("") }
+    var status by remember { mutableStateOf("") }
+    var alamat by remember { mutableStateOf("") }
 
     var showDialog by remember { mutableStateOf(false) }
 
@@ -171,6 +179,33 @@ fun FormInput(
                         )
                     }
                 }
+
+                if (showDialog) {
+                    AlertDialog(
+                        onDismissRequest = { showDialog = false },
+                        confirmButton = {
+                            TextButton(onClick = {
+                                showDialog = false
+                                OnSubmitClick()
+                            }) {
+                                Text("OK", color = Color(0xFF7B1FA2))
+                            }
+                        },
+                        title = { Text(text = "Data Berhasil Disimpan!") },
+                        text = {
+                            Column {
+                                Text("Terima kasih telah mengisi data dengan benar.\n")
+                                Spacer(modifier = Modifier.height(8.dp))
+                                Text("Nama: $textNama")
+                                Text("Jenis Kelamin: $textJK")
+                                Text("Status: $textStatus")
+                                Text("Alamat: $textAlamat")
+                            }
+                        },
+                        shape = RoundedCornerShape(16.dp)
+                    )
+                }
+
             }
         }
     }
